@@ -15,7 +15,7 @@ negative numbers and displays result each on unique lines.
 | :---: | -------------------------- | ---------------------------------------------------------- |
 |   1   | [main.cpp](https://github.com/Jarette/4883-Prog-Tech/blob/main/Assignments/P10055/main4.cpp)     | solution file.                                             |
 |   2   | [input](https://github.com/Jarette/4883-Prog-Tech/blob/main/Assignments/P10055/in1.txt)        | Test input file from problem statement                     |
-|   3   | [input2]([./input](https://github.com/Jarette/4883-Prog-Tech/blob/main/Assignments/P10055/in1.txt))           | Largest input file from Udebug                   |
+|   3   | [input2](https://github.com/Jarette/4883-Prog-Tech/blob/main/Assignments/P10055/in2.txt) | Largest input file from Udebug                   |
 
 
 ### Instructions
