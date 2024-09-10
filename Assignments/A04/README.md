@@ -12,11 +12,8 @@ A Paragraph explaining my personal opinion on what I think the direction of the 
 
 ### Instructions
 
-- This project was compiled using G++ 11.4
+N/A
 
 ### Sources
 
-Geek for Geeks: 
-    https://www.geeksforgeeks.org/stringstream-c-applications/
-
-I used this to understand saving strings to do the buffer and displaying results
+N/A
