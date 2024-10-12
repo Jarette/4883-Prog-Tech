@@ -1,0 +1,34 @@
+class Solution {
+public:
+    static bool cmp_by_val(pair<char, int>& a, pair<char, int>& b) {
+        return a.second > b.second;
+    }
+    static vector<pair<char, int>> Sort_M(map<char, int>& M) {
+        vector<pair<char, int>> A;
+        for (auto& it : M) {
+            A.push_back(it);
+        }
+        sort(A.begin(), A.end(), cmp_by_val);
+
+        return A;
+    }
+    string frequencySort(string s) {
+        map<char, int> dict;
+
+        stringstream end;
+        for (auto i : s) {
+            if (dict[i] >= 1) {
+                dict[i] = dict[i] + 1;
+            } else {
+                dict[i] = 1;
+            }
+        }
+        vector<pair<char, int>> result = Sort_M(dict);
+        for (auto& it : result) {
+            for (int i = 0; i < it.second; i++) {
+                end << it.first;
+            }
+        }
+        return end.str();
+    }
+};
