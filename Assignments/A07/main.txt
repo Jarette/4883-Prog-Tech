@@ -1,0 +1,39 @@
+class Solution {
+public:
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        vector<int> test = {1, 2, 3};
+        if (k == 1) {
+            return nums;
+        }
+        if(k == nums.size()){
+            vector<int> result;
+            result.push_back(*max_element(nums.begin(),nums.end()));
+            return result;
+        }
+        deque<int> indexes;
+        vector<int> largest;
+        if (indexes.empty()) {
+            indexes.push_back(0);
+        }
+        for (int i = 1; i < nums.size(); i++) {
+            if (indexes.front() == (i - k)) {
+                indexes.pop_front();
+            }
+            while (!indexes.empty()) {
+                if (nums[indexes.back()] < nums[i]) {
+                    indexes.pop_back();
+                } else {
+                    indexes.push_back(i);
+                    break;
+                }
+            }
+            if (indexes.empty()) {
+                indexes.push_back(i);
+            }
+            if (i >= k - 1) {
+                largest.push_back(nums[indexes.front()]);
+            }
+        }
+        return largest;
+    }
+};
