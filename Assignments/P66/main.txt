@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        vector<int> temp = digits;
+        bool finished = false;
+        int temp_val;
+        while (!finished) {
+            if (temp.empty()) {
+                finished = true;
+            } else if (temp.back() == 9) {
+                temp.pop_back();
+            } else if (temp.back() < 9) {
+                finished = true;
+            }
+        }
+        if (temp.empty()) {
+            temp.push_back(1);
+            for (int i = temp.size()-1; i < digits.size(); i++) {
+                temp.push_back(0);
+            }
+        } else {
+            temp_val = temp.back();
+            temp.pop_back();
+            temp.push_back(temp_val + 1);
+            for (int i = temp.size(); i < digits.size(); i++) {
+                temp.push_back(0);
+            }
+        }
+        return temp;
+    }
+};
