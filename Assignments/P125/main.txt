@@ -1,0 +1,32 @@
+#include <string.h>
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        bool checker = true;
+        char temp;
+        string new_s;
+        if (s.length() == 0) {
+            return true;
+        } else {
+            for (int i = 0; i < s.length(); i++) {
+                if ( s[i] > 64 && s[i] < 91) {
+                    new_s += tolower(s[i]);
+                } else if((s[i] > 47 && s[i] < 58) || (s[i] > 96) && s[i] < 123){
+                    new_s += s[i];
+                }else{
+                    continue;
+                }
+            }
+            cout << new_s;
+            for (int i = 0; i < new_s.length(); i++){
+                if(new_s[i] != new_s[(new_s.length()-1)-i]){
+                    return false;
+                }
+                if(i == (new_s.length()-1)/2){
+                    break;
+                }
+            }
+            return true;
+        }
+    }
+};
