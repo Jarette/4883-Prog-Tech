@@ -1,0 +1,34 @@
+class Solution {
+public:
+    vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
+        vector<int> Nodes;
+        int final_Node = graph.size() - 1;
+        vector<vector<int>> paths;
+        int C_nodes;
+        vector<int> C_paths;
+        vector<vector<int>> F_paths;
+        vector<int> temp;
+        vector<vector<int>> temp2;
+        Nodes.push_back(0);
+        paths.push_back({0});
+        while (!Nodes.empty()) {
+            C_nodes = Nodes.back();
+            Nodes.pop_back();
+            C_paths = paths.back();
+            paths.pop_back();
+            if (C_nodes == final_Node) {
+                F_paths.push_back(C_paths);
+            } else {
+                temp = C_paths;
+                for (int i = 0; i < graph[C_nodes].size(); i++) {
+                    Nodes.push_back(graph[C_nodes][i]);
+                    temp.push_back(graph[C_nodes][i]);
+                    paths.push_back(temp);
+                    temp.clear();
+                    temp = C_paths;
+                }
+            }
+        }
+        return F_paths;
+    }
+};
