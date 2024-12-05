@@ -38,7 +38,7 @@ Due to the fact that both implmentation got stuck on the same test case this is 
 
 |   #   | File                       | Description                                                |
 | :---: | -------------------------- | ---------------------------------------------------------- |
-|   1   | [main.txt](https://github.com/Jarette/4883-Prog-Tech/blob/main/Assignments/A09%20%26%20Prenetation/4883%20Programming%20Techniques%20Presentation.pptx)     | my solution function                                             |
+|   1   | [PowerPoint Presentation](https://github.com/Jarette/4883-Prog-Tech/blob/main/Assignments/A09%20%26%20Prenetation/4883%20Programming%20Techniques%20Presentation.pptx)     | My powerpoint presentation.                                             |
 
 
 ### Instructions
