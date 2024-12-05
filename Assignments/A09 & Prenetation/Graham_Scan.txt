@@ -1,0 +1,73 @@
+struct points_w_polar {
+    vector<int> points;
+    double polar;
+};
+bool compare_polar(const points_w_polar& a, const points_w_polar& b) {
+    return a.polar < b.polar;
+}
+class Solution {
+    int cross_product(vector<int> a, vector<int> b, vector<int> c) {
+        float area =
+            (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0]);
+
+        if (area < 0)
+            return -1;
+
+        if (area > 0)
+            return 1;
+
+        return 0;
+    }
+    double polar_angle(vector<int> p, vector<int> start) {
+        return atan2(p[1] - start[1], p[0] - start[0]);
+    }
+
+public:
+    vector<vector<int>> outerTrees(vector<vector<int>>& trees) {
+        if (trees.size() <= 3) {
+            return trees;
+        } else {
+            int start = 0;
+            vector<vector<int>> hull;
+            vector<points_w_polar> new_points;
+            points_w_polar temp;
+            vector<int> point;
+            double temp_polar;
+            for (int i = 1; i < trees.size(); i++) {
+                if (trees[i][1] < trees[start][1]) {
+                    start = i;
+                } else if (trees[i][1] == trees[start][1]) {
+                    if (trees[i][0] < trees[start][0]) {
+                        start = i;
+                    }
+                }
+            }
+            for(int i = 0; i < trees.size();i++){
+                if(i == start){
+                    temp.points = trees[i];
+                    temp.polar = -1;
+                    new_points.push_back(temp);
+                }else{
+                    temp.points = trees[i];
+                    temp.polar = polar_angle(trees[i],trees[start]);
+                    new_points.push_back(temp);
+                }
+            }
+            sort(new_points.begin(),new_points.end(),compare_polar);
+            hull.push_back(new_points[0].points);
+            hull.push_back(new_points[1].points);
+            for(int i = 2; i < new_points.size();i++){
+                while(hull.size() > 1 && cross_product(hull[hull.size()-2], hull[hull.size()-1],new_points[i].points) < 0){
+                    hull.pop_back();
+                }
+                hull.push_back(new_points[i].points);
+            }
+            point = hull.back();
+            hull.pop_back();
+            if(cross_product(hull.back(),point,trees[start]) > 0){
+              hull.push_back(point);
+            }
+            return hull;
+        }
+    }
+};

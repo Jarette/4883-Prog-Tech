@@ -1,0 +1,99 @@
+class Solution {
+    int cross_product(vector<int> a, vector<int> b, vector<int> c) {
+        float area =
+            (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0]);
+
+        if (area < 0)
+            return -1;
+
+        if (area > 0)
+            return 1;
+
+        return 0;
+    }
+    double distance(vector<int> P1, vector<int> Start) {
+        return sqrt(pow((P1[0] - Start[0]), 2) + pow(P1[1] - Start[1], 2));
+    }
+    bool same_points(vector<int> P1, vector<int> P2) {
+        if (P1[0] == P2[0] && P1[1] == P2[1]) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    bool compare_x(const vector<int>& a, const vector<int>& b) {
+        return a[0] < b[0];
+    }
+
+public:
+    vector<vector<int>> outerTrees(vector<vector<int>>& trees) {
+        if (trees.size() <= 3) {
+            return trees;
+        } else {
+            int start = 0;
+            int turn;
+            vector<vector<int>> hull;
+            vector<vector<int>> collinear;
+            vector<int> previous;
+            vector<int> candidate;
+            for (int i = 0; i < trees.size(); i++) {
+                if (trees[i][0] < trees[start][0]) {
+                    start = i;
+                } else if (trees[i][0] == trees[start][0]) {
+                    if (trees[i][1] < trees[start][1]) {
+                        start = i;
+                    }
+                }
+            }
+            previous = trees[start];
+            hull.push_back(previous);
+            while (true) {
+                for (int i = 0; i < trees.size(); i++) {
+                    candidate = trees[i];
+                    if (same_points(candidate, previous)) {
+                        continue;
+                    }
+                }
+                for (int i = 0; i < trees.size(); i++) {
+                    if (same_points(trees[i], previous)) {
+                        continue;
+                    }
+                    if (same_points(trees[i], candidate)) {
+                        continue;
+                    }
+                    if (same_points(previous, trees[5]) &&
+                        same_points(candidate, trees[4]) &&
+                        same_points(trees[i], trees[3])) {
+                        cout << "this is found";
+                    }
+                    turn = cross_product(previous, candidate, trees[i]);
+                    if (turn == 0) {
+                        if (distance(candidate, previous) <
+                            distance(trees[i], previous)) {
+                            // collinear.push_back(candidate);
+                            candidate = trees[i];
+                        } else {
+                            collinear.push_back(trees[i]);
+                        }
+                    } else if (turn > 0) {
+                        candidate = trees[i];
+                    }
+                }
+                if (same_points(candidate, trees[start])) {
+                    break;
+                }
+
+                if (!collinear.empty()) {
+                    for (int i = 0; i < collinear.size(); i++) {
+                        hull.push_back(collinear[i]);
+                    }
+                    collinear.clear();
+                }
+
+                hull.push_back(candidate);
+                previous = candidate;
+            }
+            return hull;
+        }
+    }
+};
