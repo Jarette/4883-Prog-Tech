@@ -38,7 +38,7 @@ Due to the fact that both implmentation got stuck on the same test case this is 
 
 |   #   | File                       | Description                                                |
 | :---: | -------------------------- | ---------------------------------------------------------- |
-|   1   | [main.txt](https://github.com/Jarette/4883-Prog-Tech/blob/main/Assignments/A10/main.txt)     | my solution function                                             |
+|   1   | [main.txt](https://github.com/Jarette/4883-Prog-Tech/blob/main/Assignments/A09%20%26%20Prenetation/4883%20Programming%20Techniques%20Presentation.pptx)     | my solution function                                             |
 
 
 ### Instructions
@@ -50,9 +50,11 @@ Due to the fact that both implmentation got stuck on the same test case this is 
 Graham Scan:
    Wikipedia - https://en.wikipedia.org/wiki/Graham_scan 
    Geek for Geek - https://www.geeksforgeeks.org/convex-hull-using-graham-scan/
+
 Jarvis March:
     Geek for Geek - https://www.geeksforgeeks.org/convex-hull-using-jarvis-algorithm-or-wrapping/
     Wikipedia - https://en.wikipedia.org/wiki/Gift_wrapping_algorithm
+
 Both:
     Youtube - https://www.youtube.com/watch?v=B2AJoQSZf4M
     Chat GPT
