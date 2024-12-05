@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<int> gardenNoAdj(int n, vector<vector<int>>& paths) {
+        vector<int> garden_color(n,-1);
+        vector<bool> checker(4, true);
+        vector<vector<int>> graph(n);
+        for (int i = 0; i < paths.size(); i++) {
+            graph[paths[i][0] - 1].push_back(paths[i][1]-1);
+            graph[paths[i][1] - 1].push_back(paths[i][0]-1);
+        }
+        for(int i = 0; i < graph.size();i++){
+            for(int j = 0; j < graph[i].size(); j++){
+                if(garden_color[graph[i][j]] != -1){
+                    checker[garden_color[graph[i][j]]] = false;
+                }
+            }
+            for(int j = 0; j < checker.size();j++){
+                if(checker[j] == true){
+                    garden_color[i] = j;
+                    break;
+                }
+            }
+            checker.assign(4,true);
+        }
+        for(int i = 0; i < garden_color.size(); i++){
+            garden_color[i] += 1;
+        }
+        return garden_color;
+    }
+};
