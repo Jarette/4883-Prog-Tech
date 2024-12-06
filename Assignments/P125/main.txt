@@ -2,15 +2,20 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
+        // assume it is a palindrome
         bool checker = true;
         char temp;
         string new_s;
+        // if the string is empty return true
         if (s.length() == 0) {
             return true;
         } else {
+            // formating string
             for (int i = 0; i < s.length(); i++) {
                 if ( s[i] > 64 && s[i] < 91) {
+                    // making lowercase
                     new_s += tolower(s[i]);
+                // making sure to remove symbols  
                 } else if((s[i] > 47 && s[i] < 58) || (s[i] > 96) && s[i] < 123){
                     new_s += s[i];
                 }else{
@@ -18,10 +23,13 @@ public:
                 }
             }
             cout << new_s;
+            // comparing the front to the back of the string 
             for (int i = 0; i < new_s.length(); i++){
+                // finds any unmatched characters return false
                 if(new_s[i] != new_s[(new_s.length()-1)-i]){
                     return false;
                 }
+                // if they meet in the middle then it is a palindrome
                 if(i == (new_s.length()-1)/2){
                     break;
                 }

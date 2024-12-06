@@ -5,25 +5,31 @@ public:
 	vector<int> final;
 	int i = 0;
 	while(i < popped.size()){
+		// intiliazing stack 
 		if (stack.empty()) {
 			stack.push_back(pushed.front());
 			pushed.erase(pushed.begin());
 		}
+		// check if this value matches the back of the popped stack
+		
 		if (stack.back() == popped[i]) {
 			final.push_back(stack.back());
 			stack.pop_back();
 			i++;
 		}else{
+			// get next value
 			if (!pushed.empty()) {
 				stack.push_back(pushed.front());
 				pushed.erase(pushed.begin());
 			}
 			else {
+				// if they dont match and the pushed stack is empty break the loop
 				break;
 			}
 		}
 		
 	}
+	// checking if stacks sizes dont match means its not a valid stack 
 	if (final.size() != popped.size()) {
 		return false;
 	}

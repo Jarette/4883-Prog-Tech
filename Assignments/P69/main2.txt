@@ -3,18 +3,22 @@ public:
     int mySqrt(int x) {
         int odds = 1;
         int count = 0;
+        // checking for negatives
         if (x < 0) {
             x = x * -1;
         }
         while (x > 0) {
+            // subtracting current odd
             x = x - odds;
+            // checking if at end of number
             if (x < 0) {
                 break;
             }
+            // finding next odd
             odds = odds + 2;
+            // the square root
             count++;
         }
-        cout << count;
         return count;
     }
 };

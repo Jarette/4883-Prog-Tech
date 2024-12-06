@@ -26,4 +26,4 @@ Approach: Originally used C++'s sqrt(x) built in function but that is cheating s
 
 Calculating the Square Root:
 
-https://www.cuemath.com/algebra/squares-and-square-roots/
+https://byjus.com/maths/square-root-repeated-subtraction/

@@ -1,6 +1,7 @@
 class Solution {
 public:
     int mySqrt(int x) {
+        //sqrt function
         return sqrt(x);
     }
 };

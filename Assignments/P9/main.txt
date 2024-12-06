@@ -1,16 +1,23 @@
 class Solution {
 public:
     bool isPalindrome(int x) {
+  // keeping track of original value;
   int original = x;
   long int reverse = 0; 
   int temp_digit;
   while (x>0)
   {
+    // get back value;
     temp_digit=x%10;
+    // add to current reverse value
     reverse *= 10;
     reverse+=temp_digit;
+
+    // reduce original
     x/=10;
   }
+  
+  //check if palindrome
   return (reverse==original);
 }
 };

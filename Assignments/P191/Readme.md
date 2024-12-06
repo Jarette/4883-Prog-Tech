@@ -1,4 +1,4 @@
-## Leet:191 -  Valid Palindrome
+## Leet:191 -  Number of 1 Bits
 ### Jarette Greene
 ### Description:
 

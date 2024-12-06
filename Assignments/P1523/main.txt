@@ -2,7 +2,9 @@ class Solution {
 public:
     int countOdds(int low, int high) {
         int count = 0;
+        //seeing every value in between two values including the boundaries
       for(int i = low ; i <= high; i++){
+        // checking if value is odd if yes increment count 
         if( i % 2 != 0){
             count++;
         }

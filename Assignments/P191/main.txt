@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int hammingWeight(int n) {
+        // the number of set bits
+        int count = 0;
+        // max power allowed 
+        int exp = 32;
+        while (n >= 1) {
+            // finding the highest power of 2 that is less than original value
+            if (pow(2, exp) > n) {
+                exp = exp - 1;
+                continue;
+            }else{
+                // subtracting powers 
+                n = n - pow(2,exp);
+                if(n >= 0){
+                    // if the result of subtraction is greater than or equal 0 
+                    // increment count
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+};

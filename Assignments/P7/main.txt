@@ -1,11 +1,14 @@
 class Solution {
 public:
     int reverse(int x) {
+        // checking for negative values
          bool isneg = false;
         if (x < 0 && x > -2147483648 ){
+            // make positive but keep track of the fact that it was negative
             isneg = true;
             x = x * -1;
         }
+        // perform palindrome number
         long int original = x;
         long int reverse = 0;
         long int temp_digit;
@@ -15,9 +18,11 @@ public:
             reverse += temp_digit;
             x /= 10;
         }
+        // if the value was negative make it negative again.
         if(isneg){
             reverse = reverse * -1; 
         }
+        // if the value is greater than size restriction return 0
         if (reverse > 2147483648 || reverse < -2147483648){
             return 0;
         }

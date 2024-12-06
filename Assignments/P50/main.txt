@@ -1,8 +1,11 @@
 class Solution {
 public:
     double myPow(double x, int n) {
+        // checking if the base is negative 
         if (x < 0) {
+            // convert base to positive
             x = x * -1;
+            // if the power is odd then make result negative 
             if (n % 2 != 0) {
                 long double Ln = log(x);
                 long double new_exp = Ln * n;
@@ -10,6 +13,7 @@ public:
                 return result * -1;
             }
         }
+        // performing exponential formuala to find powers 
         long double Ln = log(x);
         long double new_exp = Ln * n;
         long double result = exp(new_exp);

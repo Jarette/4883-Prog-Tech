@@ -1,9 +1,15 @@
 class Solution {
 public:
     vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
+        // vector storing the amount of elements that are less than the 
+        // element in that position
         vector<int> result(nums.size(),0);
+        //getting value being compared
         for(int i = 0; i < nums.size();i++){
+            // getting value that will be used to compare 
             for(int j = 0; j < nums.size();j++){
+                // the value is being compared is greater then increment 
+                // the same positon in resulting vector;
                 if(nums[j] < nums[i]){
                     result[i] = result[i] + 1;
                 }

@@ -4,7 +4,6 @@
 
 Given an integer array nums, return the third distinct maximum number in this array. If the third maximum does not exist, return the maximum number.
 
-
 Approach: Used a set to remove all duplicate elements from the nums vector, then sorting that new vector in descending order. If the size of the vector is less then 3 then return the first element, else return the third element 
 
 ### Files

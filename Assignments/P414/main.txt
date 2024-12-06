@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int thirdMax(vector<int>& nums) {
+        // create a set to get rid of duplicate elements
+        set<int> unique;
+        vector<int> temp;
+        // inserting values into the set
+        for (int i = 0; i < nums.size(); i++) {
+            unique.insert(nums[i]);
+        }
+        // taking values from set and place into new vector
+        for (auto& num : unique) {
+            temp.push_back(num);
+        }
+        // sort vector in descending order
+        sort(temp.begin(), temp.end(), greater<int>());
+        // if the vector is less than 3 return largest value;
+        if(temp.size() < 3){
+            return temp[0];
+        }else{
+            // return largest value;
+            return temp[2];
+        }
+        
+    }
+};
