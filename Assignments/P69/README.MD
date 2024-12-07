@@ -1,4 +1,4 @@
-## Leet:69 -  Sqrt(x)
+## Leet: 69 -  Sqrt(x)
 ### Jarette Greene
 ### Description:
 
