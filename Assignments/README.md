@@ -15,7 +15,7 @@
 | P69  | [P69](https://github.com/Jarette/4883-Prog-Tech/tree/main/Assignments/P69)| Solution for  Leet: 69 -  Sqrt(x)|
 | P191  | [P191](https://github.com/Jarette/4883-Prog-Tech/tree/main/Assignments/P191)| Solution for  Leet: 191 -  Number of 1 Bits|
 | P414  | [P414](https://github.com/Jarette/4883-Prog-Tech/tree/main/Assignments/P414)| Solution for  Leet: 414 -  Third Maximum Number|
-| P946  | [P946](https://github.com/Jarette/4883-Prog-Tech/tree/main/Assignments/P946)| Solution for  Leet: 946 -  Third Maximum Number|
+| P946  | [P946](https://github.com/Jarette/4883-Prog-Tech/tree/main/Assignments/P946)| Solution for  Leet: 946 -  Valid Stack Sequence |
 | P700  | [P700](https://github.com/Jarette/4883-Prog-Tech/tree/main/Assignments/P700)| Solution for Leet: 700 Search in a Binary Search Tree|
 | P66  | [P66](https://github.com/Jarette/4883-Prog-Tech/tree/main/Assignments/P66)| Solution for Leet: 66  Plus One|
 | P125  | [P125](https://github.com/Jarette/4883-Prog-Tech/tree/main/Assignments/P125)| Solution for Leet: 125 Valid Palindrome|
