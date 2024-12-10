@@ -2,12 +2,15 @@ class Solution {
 public:
     vector<int> gardenNoAdj(int n, vector<vector<int>>& paths) {
         vector<int> garden_color(n,-1);
+        // boolean list to check which colors are available 
         vector<bool> checker(4, true);
         vector<vector<int>> graph(n);
+        // finding paths 
         for (int i = 0; i < paths.size(); i++) {
             graph[paths[i][0] - 1].push_back(paths[i][1]-1);
             graph[paths[i][1] - 1].push_back(paths[i][0]-1);
         }
+        // find the colors available for each bath 
         for(int i = 0; i < graph.size();i++){
             for(int j = 0; j < graph[i].size(); j++){
                 if(garden_color[graph[i][j]] != -1){
@@ -20,6 +23,7 @@ public:
                     break;
                 }
             }
+            // reseting checker
             checker.assign(4,true);
         }
         for(int i = 0; i < garden_color.size(); i++){

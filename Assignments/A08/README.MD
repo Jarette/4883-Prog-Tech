@@ -12,7 +12,7 @@ Approach: Used a Dept first search to look at every possible patch between two n
 
 |   #   | File                       | Description                                                |
 | :---: | -------------------------- | ---------------------------------------------------------- |
-|   1   | [main.txt](https://github.com/Jarette/4883-Prog-Tech/blob/main/Assignments/A07/main.txt)     | my solution function                                             |
+|   1   | [main.txt](https://github.com/Jarette/4883-Prog-Tech/blob/main/Assignments/A08/main.txt)     | my solution function                                             |
 
 
 ### Instructions
