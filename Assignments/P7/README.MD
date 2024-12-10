@@ -6,7 +6,7 @@ Given a signed 32-bit integer x, return x with its digits reversed. If reversing
 
 Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
 
-Approach: Brute force solution that reuses solutions fro previously solved leet problem and then performing checks for size.
+Approach: Brute force solution that reuses solutions for previously solved leet problem and then performing checks for size.
 
 ### Files
 

@@ -11,7 +11,7 @@ You may return the answer in any order. The answer is guaranteed to be unique (e
 
 Approach:
 
-After creating a struct that stores both the index and the eucldiean distance of each. traverse the original list of points calculat the euclidean distance and keep track of index then insert into a new list and bubble sort the list to keep the list sorted based on euclidean distance. After sorting all points take the first k number of points from the list and store the original coridiantes in a new vector and return that vector for the result.
+After creating a struct that stores both the index and the eucldiean distance of each. traverse the original list of points and calculate the euclidean distance and keep track of index then insert into a new list and bubble sort the list to keep the list sorted based on euclidean distance. After sorting all points take the first k number of points from the list and store the original coridiantes in a new vector and return that vector for the result.
 
 ### Files
 
