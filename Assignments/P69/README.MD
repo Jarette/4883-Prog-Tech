@@ -14,8 +14,8 @@ Approach: Originally used C++'s sqrt(x) built in function but that is cheating s
 
 |   #   | File                       | Description                                                |
 | :---: | -------------------------- | ---------------------------------------------------------- |
-|   1   | [main1.txt](https://github.com/Jarette/4883-Prog-Tech/blob/main/Assignments/P69/main.txt)     |using built in functions                                             |
-|   2   | [main2.txt](https://github.com/Jarette/4883-Prog-Tech/blob/main/Assignments/P96/main.txt)     |using algebra                                            |
+|   1   | [main1.txt](https://github.com/Jarette/4883-Prog-Tech/blob/main/Assignments/P69/main1.txt)     |using built in functions                                             |
+|   2   | [main2.txt](https://github.com/Jarette/4883-Prog-Tech/blob/main/Assignments/P96/main2.txt)     |using algebra                                            |
 
 
 ### Instructions
