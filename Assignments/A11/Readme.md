@@ -1,4 +1,4 @@
-## Leet:1042: Flower Planting No Adjacent
+## Leet 1042: Flower Planting No Adjacent
 ### Jarette Greene
 ### Description:
 
