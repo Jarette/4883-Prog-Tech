@@ -1,19 +1,22 @@
 class Solution {
+    // orientation found using cross proddic 
     int cross_product(vector<int> a, vector<int> b, vector<int> c) {
         float area =
             (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0]);
-
+        // clockwise
         if (area < 0)
             return -1;
-
+        // counter clockwise
         if (area > 0)
             return 1;
 
         return 0;
     }
+    // distance between current and start point
     double distance(vector<int> P1, vector<int> Start) {
         return sqrt(pow((P1[0] - Start[0]), 2) + pow(P1[1] - Start[1], 2));
     }
+    // checking if two points are the same points 
     bool same_points(vector<int> P1, vector<int> P2) {
         if (P1[0] == P2[0] && P1[1] == P2[1]) {
             return true;
@@ -21,21 +24,25 @@ class Solution {
             return false;
         }
     }
+    // helper function for comparing points
     bool compare_x(const vector<int>& a, const vector<int>& b) {
         return a[0] < b[0];
     }
 
 public:
     vector<vector<int>> outerTrees(vector<vector<int>>& trees) {
+        // if there are 3 or less points the hull is all the points 
         if (trees.size() <= 3) {
             return trees;
         } else {
+            // neccessary set up
             int start = 0;
             int turn;
             vector<vector<int>> hull;
             vector<vector<int>> collinear;
             vector<int> previous;
             vector<int> candidate;
+            // finding start point (lowest x coordinates)
             for (int i = 0; i < trees.size(); i++) {
                 if (trees[i][0] < trees[start][0]) {
                     start = i;
@@ -45,29 +52,32 @@ public:
                     }
                 }
             }
+            //staring hul
             previous = trees[start];
             hull.push_back(previous);
             while (true) {
+                // get current pount 
                 for (int i = 0; i < trees.size(); i++) {
                     candidate = trees[i];
                     if (same_points(candidate, previous)) {
                         continue;
                     }
                 }
+                // checking 
                 for (int i = 0; i < trees.size(); i++) {
+                    // skipping point behind candiate
                     if (same_points(trees[i], previous)) {
                         continue;
                     }
+                    // skipping the current candidate
                     if (same_points(trees[i], candidate)) {
                         continue;
                     }
-                    if (same_points(previous, trees[5]) &&
-                        same_points(candidate, trees[4]) &&
-                        same_points(trees[i], trees[3])) {
-                        cout << "this is found";
-                    }
+                    get orientation
                     turn = cross_product(previous, candidate, trees[i]);
+                    // handling collinear points by storing seperately
                     if (turn == 0) {
+                        // update based on distance 
                         if (distance(candidate, previous) <
                             distance(trees[i], previous)) {
                             // collinear.push_back(candidate);
@@ -75,21 +85,23 @@ public:
                         } else {
                             collinear.push_back(trees[i]);
                         }
+                    // if counter clockwise turn then update candidate
                     } else if (turn > 0) {
                         candidate = trees[i];
                     }
                 }
+                // end when candidate is the same as the start point 
                 if (same_points(candidate, trees[start])) {
                     break;
                 }
-
+                // add all collinear points 
                 if (!collinear.empty()) {
                     for (int i = 0; i < collinear.size(); i++) {
                         hull.push_back(collinear[i]);
                     }
                     collinear.clear();
                 }
-
+                // updating points
                 hull.push_back(candidate);
                 previous = candidate;
             }

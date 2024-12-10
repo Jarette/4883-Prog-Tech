@@ -1,38 +1,45 @@
+// storing points and polar angle in reference from starting point
 struct points_w_polar {
     vector<int> points;
     double polar;
 };
+// helper to sort points based on polar angle 
 bool compare_polar(const points_w_polar& a, const points_w_polar& b) {
     return a.polar < b.polar;
 }
 class Solution {
+    // using cross product to get the orientation of three points 
     int cross_product(vector<int> a, vector<int> b, vector<int> c) {
         float area =
             (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0]);
-
+        // clockwise page
         if (area < 0)
             return -1;
-
+        // counter clockwise 
         if (area > 0)
             return 1;
-
+        // collinear
         return 0;
     }
+    // calculate polar angel based on start point
     double polar_angle(vector<int> p, vector<int> start) {
         return atan2(p[1] - start[1], p[0] - start[0]);
     }
 
 public:
     vector<vector<int>> outerTrees(vector<vector<int>>& trees) {
+        // if 3 or less points just return all points
         if (trees.size() <= 3) {
             return trees;
         } else {
+            // neccessary set up
             int start = 0;
             vector<vector<int>> hull;
             vector<points_w_polar> new_points;
             points_w_polar temp;
             vector<int> point;
             double temp_polar;
+            // finding start point (lowest y coordinate)
             for (int i = 1; i < trees.size(); i++) {
                 if (trees[i][1] < trees[start][1]) {
                     start = i;
@@ -42,6 +49,7 @@ public:
                     }
                 }
             }
+            // calculating the polar angles of all points from start point 
             for(int i = 0; i < trees.size();i++){
                 if(i == start){
                     temp.points = trees[i];
@@ -53,15 +61,21 @@ public:
                     new_points.push_back(temp);
                 }
             }
+            // sorting based on polar angle 
             sort(new_points.begin(),new_points.end(),compare_polar);
+            // pushing first two points 
             hull.push_back(new_points[0].points);
             hull.push_back(new_points[1].points);
+            // making hull
             for(int i = 2; i < new_points.size();i++){
+                // removing points from hull if a clockwise turn is made remove from hull 
                 while(hull.size() > 1 && cross_product(hull[hull.size()-2], hull[hull.size()-1],new_points[i].points) < 0){
                     hull.pop_back();
                 }
+                // adding points if counter clockwise or collinear turn was made 
                 hull.push_back(new_points[i].points);
             }
+            // making sure no duplicate points at the end
             point = hull.back();
             hull.pop_back();
             if(cross_product(hull.back(),point,trees[start]) > 0){
