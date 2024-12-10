@@ -1,29 +1,37 @@
 class Solution {
 public:
+    // sort helper function 
     static bool cmp_by_val(pair<char, int>& a, pair<char, int>& b) {
         return a.second > b.second;
     }
+    // function to sort a Map
     static vector<pair<char, int>> Sort_M(map<char, int>& M) {
+        // convert map to vector
         vector<pair<char, int>> A;
         for (auto& it : M) {
             A.push_back(it);
         }
+        // sort vector
         sort(A.begin(), A.end(), cmp_by_val);
 
         return A;
     }
     string frequencySort(string s) {
         map<char, int> dict;
-
         stringstream end;
+        // gathering each character in a string and storing in a map
         for (auto i : s) {
+            // if the character already exists in made increment frequency
             if (dict[i] >= 1) {
                 dict[i] = dict[i] + 1;
             } else {
+                // else add new element to map
                 dict[i] = 1;
             }
         }
+        // sort Map
         vector<pair<char, int>> result = Sort_M(dict);
+        //created string of sorted characters
         for (auto& it : result) {
             for (int i = 0; i < it.second; i++) {
                 end << it.first;

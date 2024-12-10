@@ -2,9 +2,11 @@ class Solution {
 public:
     vector<int> maxSlidingWindow(vector<int>& nums, int k) {
         vector<int> test = {1, 2, 3};
+        // checking for a window size of 1
         if (k == 1) {
             return nums;
         }
+        // checking if the window size is the same as the number of numbers in the list 
         if(k == nums.size()){
             vector<int> result;
             result.push_back(*max_element(nums.begin(),nums.end()));
@@ -12,13 +14,16 @@ public:
         }
         deque<int> indexes;
         vector<int> largest;
+        // pushing first element onto the final queue
         if (indexes.empty()) {
             indexes.push_back(0);
         }
         for (int i = 1; i < nums.size(); i++) {
+            // checking if the moving outside of the window
             if (indexes.front() == (i - k)) {
                 indexes.pop_front();
             }
+            // keeping largest value at the front by removing all smaller values 
             while (!indexes.empty()) {
                 if (nums[indexes.back()] < nums[i]) {
                     indexes.pop_back();
@@ -30,6 +35,7 @@ public:
             if (indexes.empty()) {
                 indexes.push_back(i);
             }
+            // pushing largest value in the window
             if (i >= k - 1) {
                 largest.push_back(nums[indexes.front()]);
             }

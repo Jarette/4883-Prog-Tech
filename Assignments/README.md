@@ -7,7 +7,8 @@
 | A06  | [A06](https://github.com/Jarette/4883-Prog-Tech/tree/main/Assignments/A06)| Solution for Leet: 451 Sort Characters by Frequency|
 | A07  | [A07](https://github.com/Jarette/4883-Prog-Tech/tree/main/Assignments/A07)| Solution for Leet: 239  Sliding Window Maximum|
 | A08  | [A08](https://github.com/Jarette/4883-Prog-Tech/tree/main/Assignments/A08)| Solution for Leet: 797  All Paths From Source to Target|
-| A09 && Presentation  | [A09_&_Presentation](https://github.com/Jarette/4883-Prog-Tech/tree/main/Assignments/A09%20%26%20Presentation)| Solution for Leet: 587  All Erect the Fence and presentation of solution|
+| A09  | [A09](https://github.com/Jarette/4883-Prog-Tech/tree/main/Assignments/A09)| Solution for Leet: 587  Erect the Fence|
+| Presentation | [Presentation](https://github.com/Jarette/4883-Prog-Tech/tree/main/Assignments/Presentation)| Solution for Leet: 587  All Erect the Fence and presentation|
 | A10  | [A10](https://github.com/Jarette/4883-Prog-Tech/tree/main/Assignments/A10)| Solution for Leet:973 - K Closest Points|
 | A11  | [A11](https://github.com/Jarette/4883-Prog-Tech/tree/main/Assignments/A11)| Solution for Leet 1042: Flower Planting No Adjacent|
 | P9  | [P9](https://github.com/Jarette/4883-Prog-Tech/tree/main/Assignments/P9)| Solution for Leet: 9 Palindrome Numbers|
