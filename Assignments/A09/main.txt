@@ -1,0 +1,64 @@
+class Solution {
+    // calculating the orientation of three points using 
+    int cross_product(vector<int> a, vector<int> b, vector<int> c) {
+        float area =
+            (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0]);
+        // clockwise turn
+        if (area < 0)
+            return -1;
+        // counter clockwise turn 
+        if (area > 0)
+            return 1;
+        // collinear point
+        return 0;
+    }   
+public:
+    vector<vector<int>> outerTrees(vector<vector<int>>& trees) {
+        // if 3 or less trees return all trees
+        if(trees.size() <= 3){
+            return trees;
+        }
+        // count of collinear points
+        int count = 0;
+        // upper and lower hulls
+        vector<vector<int>> upper;
+        vector<vector<int>> lower;
+
+        // sorting points based on x coordinate
+        sort(trees.begin(),trees.end());
+
+        // finding the lower hull
+        for(int i = 0; i < trees.size();i++){
+            // the checking the orientation of the last two points in the hull and the suspected next point 
+            // if it clockwise pop last spot until counter clockwise turn is found 
+            while(lower.size() >= 2 && cross_product(lower[lower.size()-2],lower[lower.size()-1],trees[i]) < 0){
+                lower.pop_back();
+            }
+            // counting the number of collinear points;
+            if(lower.size() >= 2 && cross_product(lower[lower.size()-2],lower[lower.size()-1],trees[i]) == 0){
+                count++;
+            }
+            // adding point to hull if counter clockwise or collinear turn 
+            lower.push_back(trees[i]);
+            
+            
+        }
+        // checking if the points make a straight line 
+        if(count == (trees.size()-2)){
+            return trees;
+        }
+        // create upper hull by repeating same process but traversing tree points in reverse
+        for(int i = trees.size()-1; i >= 0; i--){
+            while(upper.size() >= 2 && cross_product(upper[upper.size()-2],upper[upper.size()-1],trees[i]) < 0){
+                upper.pop_back();
+            }
+            upper.push_back(trees[i]);
+        }
+        // removing duplicate end points
+        upper.pop_back();
+        lower.pop_back();
+        // combining upper and lower hull and upper hull
+        upper.insert(upper.end(),lower.begin(),lower.end());
+        return upper;
+    }
+};
